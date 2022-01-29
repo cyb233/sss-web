@@ -10,5 +10,5 @@ npm run dev
 ### 服务器使用云端
 服务器地址配置:`.env.production`  
 ```bash
-npm run prod
+npm run preview
 ```
