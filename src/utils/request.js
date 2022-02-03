@@ -70,7 +70,7 @@ service.interceptors.response.use(
       } else if (res.code === 403) {
         MessageBox.confirm('权限不足', 'Confirm logout', {
           confirmButtonText: '返回',
-          //cancelButtonText: 'Cancel',
+          // cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
           store.dispatch('user/resetToken').then(() => {
