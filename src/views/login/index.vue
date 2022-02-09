@@ -53,21 +53,21 @@
 </template>
 
 <script>
-import { validLoginCode } from '@/utils/validate'
+//import { validLoginCode } from '@/utils/validate'
 
 export default {
   name: 'Login',
   data() {
     const validateLoginCode = (rule, value, callback) => {
       callback()
-      if (!validLoginCode(value)) {
+      if (!value) {
         callback(new Error('Please enter the correct user name'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
+      if (!value) {
         callback(new Error('The password can not be less than 6 digits'))
       } else {
         callback()
