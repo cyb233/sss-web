@@ -60,15 +60,15 @@ export default {
   data() {
     const validateLoginCode = (rule, value, callback) => {
       callback()
-      if (!value) {
+      if (!value.length>0) {
         callback(new Error('Please enter the correct user name'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (!value) {
-        callback(new Error('The password can not be less than 6 digits'))
+      if (!value.length>0) {
+        callback(new Error('Please enter the correct password'))
       } else {
         callback()
       }
