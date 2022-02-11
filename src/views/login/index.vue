@@ -57,7 +57,9 @@
 
 <script>
 import {JSON2str} from '@/utils'
-import {login} from '@/api/user'
+import {setToken} from '@/utils/auth'
+import {getInfo, login} from '@/api/user'
+import {pay} from '@/api/alipay'
 
 export default {
   name: 'Login',
@@ -116,7 +118,11 @@ export default {
           this.loading = true
           login(JSON2str(this.loginForm)).then(response => {
             if (response.code === 20000) {
+              setToken(response.token)
               this.$router.push({path: this.redirect || '/'})
+              getInfo(response.data.loginCode).then(response => {
+                console.log(response)
+              })
             }
             this.loading = false
           }).catch(() => {
